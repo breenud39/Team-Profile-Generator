@@ -1,5 +1,5 @@
 const generatePage = () => {
-  console.log(templateData);
+  console.log(generatePage);
 
   return `
   <!DOCTYPE html>
@@ -13,8 +13,8 @@ const generatePage = () => {
   </head>
 
   <body>
-    <h1>${templateData.name}</h1>
-    <h2><a href="https://github.com/${templateData.github}">Github</a></h2>
+    <h1>${generatePage.name}</h1>
+    <h2><a href="https://github.com/${generatePage.github}">Github</a></h2>
   </body>
   </html>
   `;
