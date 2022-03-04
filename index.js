@@ -7,7 +7,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
-const teamGen = [];
+let teamGen = [];
 
 const createNewTeam = () => 
 {
@@ -267,9 +267,19 @@ const addIntern = () => {
   })
 };
 
-const generateHTML = fs.writeFileSync(makePage, teamGen,'utf8',(err,data) =>{
-  if (err){
-    console.log(err);
-  }
-  console.log(data);
-})
+// Node.js program to demonstrate the
+// fs.writeFile() method
+
+
+function generateHTML(teamGen)
+{
+  fs.writeFile("./dis/index.html", data, (err) => {
+    if (err)
+      console.log(err);
+    else {
+      console.log("File written successfully\n");
+      console.log("The written has the following contents:");
+      console.log(fs.readFileSync("./src/page-template.js", "utf8"));
+    }
+  });
+}

@@ -20,4 +20,11 @@ const generatePage = () => {
   `;
 };
 
-module.exports = generatePage;
+const generateManager = () =>
+{}
+
+const generateIntern = () =>
+{}
+
+const generateEngineer = () =>
+{}
