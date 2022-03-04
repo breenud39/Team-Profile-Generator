@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const makePage = require('./src/page-template');
+const path = './dist/index'
 
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -18,12 +19,11 @@ const createNewTeam = () =>
       choices: ['Manager', 'Engineer', 'Intern', 'Finished']
     },
   ]).then(choices => {
-    console.log(choices)
     if(choices.titleJob === 'Manager'){
       addManager();
-    } else  if(choices.titleJob === 'Engineer'){
+    } else if(choices.titleJob === 'Engineer'){
       addEngineer();
-    } else  if(choices.titleJob === 'Intern'){
+    } else if(choices.titleJob === 'Intern'){
       addIntern();
     } else if(choices.titleJob === 'Finished'){
       generateHTML();
@@ -267,8 +267,9 @@ const addIntern = () => {
   })
 };
 
-function generateHTML(teamGen)
-{
-  console.log('Team generated')
-}
-
+const generateHTML = fs.writeFileSync(makePage, teamGen,'utf8',(err,data) =>{
+  if (err){
+    console.log(err);
+  }
+  console.log(data);
+})
