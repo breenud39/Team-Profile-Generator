@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const makePage = require('./src/page-template');
-const path = './dist/index'
 
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -104,9 +103,10 @@ const addManager = () => {
     },
   ]).then (answers => {
     const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
+    console.log(manager.getName())
     teamGen.push(manager);
-    console.log(answers)
-    createNewTeam();
+    // console.log(answers)
+    createNewTeam(manager);
   })
 };
 
@@ -182,10 +182,9 @@ const addEngineer = () => {
       }
     },
   ]).then (answers => {
-    const engineer = new Engineer(answers.name, answers.id, answers.email, answers.officeNumber, answers.github)
+    const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
     teamGen.push(engineer);
-    console.log(answers);
-    createNewTeam();
+    createNewTeam(engineer);
   })
 };
 
@@ -260,26 +259,25 @@ const addIntern = () => {
       }
     },
   ]).then (answers => {
-    const intern = new Intern(answers.name, answers.id, answers.email, answers.officeNumber, answers.github, answers.school)
+    const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
     teamGen.push(intern);
     console.log(answers);
-    createNewTeam();
+    createNewTeam(intern);
   })
 };
 
 // Node.js program to demonstrate the
 // fs.writeFile() method
 
-
 function generateHTML()
 {
-  fs.writeFile("./dis/index.html", teamGen, (err) => {
+  fs.writeFile("./dist/index.html",makePage.generatePage(teamGen[0]), (err) => {
     if (err)
       console.log(err);
     else {
       console.log("File written successfully\n");
-      console.log("The written has the following contents:");
-      console.log(fs.readFileSync("./src/page-template.js", "utf8"));
+      // console.log("The written has the following contents:");
+      // console.log(fs.readFileSync("./src/page-template.js", "utf8"));
     }
   });
 }

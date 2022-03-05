@@ -1,6 +1,8 @@
-const generatePage = () => {
-  console.log(generatePage);
+const Engineer = require('../lib/Engineer');
+const Intern = require('../lib/Intern');
+const Manager = require('../lib/Manager');
 
+const generatePage = (obj) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -14,30 +16,66 @@ const generatePage = () => {
   </head>
   <body>
     <header class ="bg-danger height"><h1 class="text-light text-center">My Team</h1></header>
+    ${generateManager(obj)} ${generateEngineer(obj)}
   </body>
   </html>
   `;
 };
 
-const generateManager = () =>
+const generateManager = (obj) =>
 {
   return `
   <section>
-  <h2>{manager.getName()}</h2>
-  <h2>${manager.getRole()}</h2>
+  <h2>${obj.getName()}</h2>
+  <h2>${obj.getRole()}</h2>
   <section>
     <ul>
-      <li>ID: ${manager.getId()}</li>
-      <li>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-      <li>Office number: ${manager.getOfficeNumber()}</li>
+      <li>ID: ${obj.getId()}</li>
+      <li>Email: <a href="mailto:${obj.getEmail()}">${obj.getEmail()}</a></li>
+      <li>Office number: ${obj.officeNumber}</li>
     </ul>
   </section>
 </section>
 `;
 }
 
-const generateIntern = () =>
-{}
+const generateEngineer = (obj) =>
+{
+  return `
+  <section>
+  <h2>${obj.getName()}</h2>
+  <h2>${obj.getRole()}</h2>
+  <section>
+    <ul>
+      <li>ID: ${obj.getId()}</li>
+      <li>Email: <a href="mailto:${obj.getEmail()}">${obj.getEmail()}</a></li>
+      <li>Github: ${obj.getGithub()}</li>
+    </ul>
+  </section>
+</section>
+`;
+}
 
-const generateEngineer = () =>
-{}
+// const generateIntern = (obj) =>
+// {
+//   return `
+//   <section>
+//   <h2>${obj.getName()}</h2>
+//   <h2>${obj.getRole()}</h2>
+//   <section>
+//     <ul>
+//       <li>ID: ${obj.getId()}</li>
+//       <li>Email: <a href="mailto:${obj.getEmail()}">${obj.getEmail()}</a></li>
+//       <li>Office number: ${obj.getSchool()}</li>
+//     </ul>
+//   </section>
+// </section>
+// `;
+// }
+
+module.exports = {
+  generatePage,
+  generateManager,
+  generateEngineer,
+  // generateIntern
+}
