@@ -20,7 +20,21 @@ const generatePage = () => {
 };
 
 const generateManager = () =>
-{}
+{
+  return `
+  <section>
+  <h2>{manager.getName()}</h2>
+  <h2>${manager.getRole()}</h2>
+  <section>
+    <ul>
+      <li>ID: ${manager.getId()}</li>
+      <li>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+      <li>Office number: ${manager.getOfficeNumber()}</li>
+    </ul>
+  </section>
+</section>
+`;
+}
 
 const generateIntern = () =>
 {}

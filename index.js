@@ -271,9 +271,9 @@ const addIntern = () => {
 // fs.writeFile() method
 
 
-function generateHTML(teamGen)
+function generateHTML()
 {
-  fs.writeFile("./dis/index.html", data, (err) => {
+  fs.writeFile("./dis/index.html", teamGen, (err) => {
     if (err)
       console.log(err);
     else {
