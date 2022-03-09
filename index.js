@@ -103,10 +103,12 @@ const addManager = () => {
     },
   ]).then (answers => {
     const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
-    console.log(manager.getName())
-    teamGen.push(manager);
-    // console.log(answers)
-    createNewTeam(manager);
+    // console.log(manager.getName());
+    // teamGen.push(manager);
+    // console.log(answers);
+    // makePage.generateManager(manager);
+    teamGen.push(makePage.generateManager(manager));
+    createNewTeam();
   })
 };
 
@@ -183,8 +185,8 @@ const addEngineer = () => {
     },
   ]).then (answers => {
     const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
-    teamGen.push(engineer);
-    createNewTeam(engineer);
+    teamGen.push(makePage.generateEngineer(engineer));
+    createNewTeam();
   })
 };
 
@@ -260,9 +262,8 @@ const addIntern = () => {
     },
   ]).then (answers => {
     const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
-    teamGen.push(intern);
-    console.log(answers);
-    createNewTeam(intern);
+    teamGen.push(makePage.generateIntern(intern));
+    createNewTeam();
   })
 };
 
@@ -271,7 +272,8 @@ const addIntern = () => {
 
 function generateHTML()
 {
-  fs.writeFile("./dist/index.html",makePage.generatePage(teamGen[0]), (err) => {
+  
+  fs.writeFile("./dist/index.html",makePage.generatePage(teamGen), (err) => {
     if (err)
       console.log(err);
     else {

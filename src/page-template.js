@@ -2,7 +2,7 @@ const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Manager = require('../lib/Manager');
 
-const generatePage = (obj) => {
+const generatePage = (teamGen) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -15,8 +15,13 @@ const generatePage = (obj) => {
     <title>Team Profile Generator</title>
   </head>
   <body>
-    <header class ="bg-danger height"><h1 class="text-light text-center">My Team</h1></header>
-    ${generateManager(obj)} ${generateEngineer(obj)}
+    <header class ="bg-danger height">
+      <h1 class="text-light text-location">My Team</h1>
+    </header>
+
+    <section class="d-flex justify-content-between m-5">
+    ${teamGen}
+    </section>    
   </body>
   </html>
   `;
@@ -25,57 +30,64 @@ const generatePage = (obj) => {
 const generateManager = (obj) =>
 {
   return `
-  <section>
-  <h2>${obj.getName()}</h2>
-  <h2>${obj.getRole()}</h2>
-  <section>
-    <ul>
-      <li>ID: ${obj.getId()}</li>
-      <li>Email: <a href="mailto:${obj.getEmail()}">${obj.getEmail()}</a></li>
-      <li>Office number: ${obj.officeNumber}</li>
+  <section class="shadow card" style="width: 18rem;">
+  <div class = "card-body">
+    <div class="card-title">
+      <h2 class="text-light">${obj.getName()}</h2>
+      <h2 class="text-light">${obj.getRole()}</h2>
+    </div>
+    <ul class="list-inline mx-auto justify-content-center m-3">
+      <li class="border p-2 bg-white rounded">ID: ${obj.getId()}</li>
+      <li class="border p-2 bg-white rounded">Email: <a href="mailto${obj.getEmail()}:">${obj.getEmail()}</a></li>
+      <li class="border p-2 bg-white rounded">Office number: ${obj.officeNumber}</li>
     </ul>
-  </section>
+  </div>
 </section>
 `;
-}
+};
 
 const generateEngineer = (obj) =>
 {
   return `
-  <section>
-  <h2>${obj.getName()}</h2>
-  <h2>${obj.getRole()}</h2>
-  <section>
-    <ul>
-      <li>ID: ${obj.getId()}</li>
-      <li>Email: <a href="mailto:${obj.getEmail()}">${obj.getEmail()}</a></li>
-      <li>Github: ${obj.getGithub()}</li>
+  <section class="shadow card" style="width: 18rem;">
+  <div class = "card-body">
+    <div class="card-title">
+      <h2 class="text-light">${obj.getName()}</h2>
+      <h2 class="text-light">${obj.getRole()}</h2>
+    </div>
+    <ul class="list-inline mx-auto justify-content-center m-3">
+      <li class="border p-2 bg-white rounded">ID: ${obj.getId()}</li>
+      <li class="border p-2 bg-white rounded">Email: <a href="mailto${obj.getEmail()}:">${obj.getEmail()}</a></li>
+      <li class="border p-2 bg-white rounded">Github: <a href="http://github.com/${obj.getGithub()}" target="_blank" rel="noopener noreferrer">${obj.getGithub()}</a></li>
     </ul>
-  </section>
+  </div>
 </section>
 `;
-}
+};
 
-// const generateIntern = (obj) =>
-// {
-//   return `
-//   <section>
-//   <h2>${obj.getName()}</h2>
-//   <h2>${obj.getRole()}</h2>
-//   <section>
-//     <ul>
-//       <li>ID: ${obj.getId()}</li>
-//       <li>Email: <a href="mailto:${obj.getEmail()}">${obj.getEmail()}</a></li>
-//       <li>Office number: ${obj.getSchool()}</li>
-//     </ul>
-//   </section>
-// </section>
-// `;
-// }
+
+const generateIntern = (obj) =>
+{
+  return `
+  <section class="shadow card" style="width: 18rem;">
+  <div class = "card-body">
+    <div class="card-title">
+      <h2 class="text-light">${obj.getName()}</h2>
+      <h2 class="text-light">${obj.getRole()}</h2>
+    </div>
+    <ul class="list-inline mx-auto justify-content-center m-3">
+      <li class="border p-2 bg-white rounded">ID: ${obj.getId()}</li>
+      <li class="border p-2 bg-white rounded">Email: <a href="mailto${obj.getEmail()}:">${obj.getEmail()}</a></li>
+      <li class="border p-2 bg-white rounded">School: ${obj.getSchool()}</li>
+    </ul>
+  </div>
+</section>
+`;
+};
 
 module.exports = {
   generatePage,
   generateManager,
   generateEngineer,
-  // generateIntern
-}
+  generateIntern
+};

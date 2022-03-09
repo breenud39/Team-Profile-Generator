@@ -10,32 +10,63 @@
     <title>Team Profile Generator</title>
   </head>
   <body>
-    <header class ="bg-danger height"><h1 class="text-light text-center">My Team</h1></header>
+    <header class ="bg-danger height">
+      <h1 class="text-light text-location">My Team</h1>
+    </header>
+
+    <section class="d-flex justify-content-between m-5">
     
-  <section>
-  <h2>Bob</h2>
-  <h2>Engineer</h2>
-  <section>
-    <ul>
-      <li>ID: 8</li>
-      <li>Email: <a href="mailto:bob@mail.com">bob@mail.com</a></li>
-      <li>Office number: undefined</li>
+  <section class="shadow card" style="width: 18rem;">
+  <div class = "card-body">
+    <div class="card-title">
+      <h2 class="text-light">Bob</h2>
+      <h2 class="text-light">Manager</h2>
+    </div>
+    <ul class="list-inline mx-auto justify-content-center m-3">
+      <li class="border p-2 bg-white rounded">ID: 1</li>
+      <li class="border p-2 bg-white rounded">Email: <a href="mailtobob@gmail.com:">bob@gmail.com</a></li>
+      <li class="border p-2 bg-white rounded">Office number: 2</li>
     </ul>
-  </section>
+  </div>
 </section>
- 
-  <section>
-  <h2>Bob</h2>
-  <h2>Engineer</h2>
-  <section>
-    <ul>
-      <li>ID: 8</li>
-      <li>Email: <a href="mailto:bob@mail.com">bob@mail.com</a></li>
-      <li>Github: bob@github.com</li>
+,
+  <section class="shadow card" style="width: 18rem;">
+  <div class = "card-body">
+    <div class="card-title">
+      <h2 class="text-light">Jack</h2>
+      <h2 class="text-light">Engineer</h2>
+    </div>
+    <ul class="list-inline mx-auto justify-content-center m-3">
+      <li class="border p-2 bg-white rounded">ID: 89</li>
+      <li class="border p-2 bg-white rounded">Email: <a href="mailtoJack@gmail.com:">Jack@gmail.com</a></li>
+      <li class="border p-2 bg-white rounded">Github: <a href="http://github.com/breenud39" target="_blank" rel="noopener noreferrer">breenud39</a></li>
     </ul>
-  </section>
+  </div>
+</section>
+,
+  <section class="shadow card" style="width: 18rem;">
+  <div class = "card-body">
+    <div class="card-title">
+      <h2 class="text-light">London</h2>
+      <h2 class="text-light">Intern</h2>
+    </div>
+    <ul class="list-inline mx-auto justify-content-center m-3">
+      <li class="border p-2 bg-white rounded">ID: 8</li>
+      <li class="border p-2 bg-white rounded">Email: <a href="mailtolondon@gmail.com:">london@gmail.com</a></li>
+      <li class="border p-2 bg-white rounded">School: University of Toronto</li>
+    </ul>
+  </div>
 </section>
 
+    </section>
+    <script>
+    let removeComma= (teamGen) => {
+        document.write (teamGen.join(','));
+    }
+    
+    removeComma();
+    </script>
+    
   </body>
   </html>
   
