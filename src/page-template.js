@@ -20,7 +20,7 @@ const generatePage = (teamGen) => {
     </header>
 
     <section class="d-flex justify-content-between m-5">
-    ${teamGen}
+    ${teamGen.join('')}
     </section>    
   </body>
   </html>

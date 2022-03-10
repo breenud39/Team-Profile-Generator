@@ -2,6 +2,6 @@
 
 ## Description
 
-An application that allows you to enter your teams profile information. And then gets generated with an html page.
+The team profile generator is an application which uses inquirer to input user data which is then used to create an html page of the team you've created.
 
 ## Walkthrough Video
