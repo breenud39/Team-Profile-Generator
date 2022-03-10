@@ -13,6 +13,22 @@ header
   align-items: center;
 }
 
+.content-holder
+{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  margin-top: 20px;
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+.card-prop
+{
+  max-width: 100%;
+}
+
 .card-body
 {
   background: linear-gradient(to bottom,   
@@ -24,10 +40,11 @@ header
 
 div ul
 {
+  padding-top: 50px;
   list-style: none;
 }
 
 .height
 {
-  height: 100px;
+  height: 120px;
 }
